@@ -38,6 +38,12 @@ Quiz.prototype.checkInput = function(message) {
 	}
 }
 
+Quiz.prototype.askQuestions = function() {
+	this.quizQuestions.forEach(function(question) {
+
+	})
+}
+
 Quiz.prototype.getInput = function(message) {
 	return sget(message).trim().toUpperCase();
 }
