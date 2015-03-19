@@ -4,15 +4,15 @@ function Questions(question, answer) {
 }
 
 function ScoreKeeper() {
-	this.currentScore = 0;
+	this.score = 0;
 }
 
 ScoreKeeper.prototype.rightAnswer = function() {
-	this.currentScore += 10;
+	this.score += 10;
 };
 
 ScoreKeeper.prototype.wrongAnswer = function() {
-	this.currentScore -= 10;
+	this.score -= 10;
 };
 
 
@@ -22,3 +22,8 @@ myScore.rightAnswer();
 console.log(myScore.currentScore === 10);
 myScore.wrongAnswer();
 console.log(myScore.currentScore === 0);
+
+function Quiz(){
+	this.currentScore = new ScoreKeeper;
+	this.quizQuestions = [];
+}
