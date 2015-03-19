@@ -9,6 +9,10 @@ Question.prototype.displayQuestion = function() {
 	return console.log(this.question);
 }
 
+Question.prototype.displayAnswer= function() {
+	return console.log(this.answer);
+}
+
 Question.prototype.checkAnswer = function(userAnswer) {
 	return this.answer === userAnswer;
 }
