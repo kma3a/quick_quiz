@@ -18,13 +18,6 @@ ScoreKeeper.prototype.wrongAnswer = function() {
 };
 
 
-
-var myScore = new ScoreKeeper;
-myScore.rightAnswer();
-console.log(myScore.currentScore === 10);
-myScore.wrongAnswer();
-console.log(myScore.currentScore === 0);
-
 function Quiz(){
 	this.currentScore = new ScoreKeeper;
 	this.quizQuestions = [];
@@ -32,6 +25,11 @@ function Quiz(){
 
 Quiz.prototype.getInput = function(message) {
 	return sget(message).trim().toUpperCase();
+}
+
+Quiz.prototype.startGame = function() {
+	console.log("Hello welcome to the Quiz app");
+	this.menu();
 }
 
 Quiz.prototype.menu = function() {
@@ -48,4 +46,5 @@ Quiz.prototype.menu = function() {
 	}
 }
 
-
+var myQuiz = new Quiz;
+myQuiz.startGame();
