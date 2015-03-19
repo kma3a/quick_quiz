@@ -50,8 +50,22 @@ Quiz.prototype.checkInput = function(message) {
 	}
 }
 
+Quiz.prototype.mixQuestions = function() {
+	var list = [];
+	var quizCopy = this.quizQuestions;
+	var length = quizCopy.length;
+	while (list.length < length) {
+		var currentLength = quizCopy.length;
+		var index = Math.floor(Math.random() * currentLength);
+		list.push(quizCopy[index]);
+		quizCopy.splice(index,1);	
+	}
+	return list;
+}
+
 Quiz.prototype.askQuestions = function() {
-	this.quizQuestions.forEach(function(currentQuestion) {
+	var mixedList = this.mixQuestions(this.quizQuestions);
+	mixedList.forEach(function(currentQuestion) {
 		currentQuestion.displayQuestion();
 		myQuiz.checkAnswer(currentQuestion);	
 	})
