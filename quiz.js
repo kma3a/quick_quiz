@@ -54,9 +54,20 @@ Quiz.prototype.askQuestions = function() {
 	this.quizQuestions.forEach(function(currentQuestion) {
 		currentQuestion.displayquestion();
 		var userAnswer = this.checkInput("your answer: ");
-		var isCorrect = currentQuestion.checkAnswer(userAnswer);
-		
+		this.checkAnswer(currentQuestion, userAnswer);	
 	})
+	console.log("Your score was " + this.currentScore.score);
+}
+
+Quiz.prototype.checkAnswer = function(currentQuestion, userAnswer) {
+	var isCorrect = currentQuestion.checkAnswer(userAnswer);
+	if (isCorrect) {
+		this.currentScore.rightAnswer();
+		console.log("You are right!");
+	} else {
+		this.currentScore.wrongAnswer();
+		console.log("The correct answer was " + currentQuestion.displayAnswer());
+	}
 }
 
 Quiz.prototype.getInput = function(message) {
@@ -76,6 +87,7 @@ Quiz.prototype.menu = function() {
 			this.menu();
 			break;
 		case "2":
+			this.askQuestions();
 			break;
 		case "3":
 			break;
