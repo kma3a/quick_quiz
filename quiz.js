@@ -44,7 +44,7 @@ Quiz.prototype.createQuestion = function() {
 Quiz.prototype.checkInput = function(message) {
 	var input = this.getInput(message);
 	if (input  === "") {
-		return this.checkInputQuestion(message);
+		return this.checkInput(message);
 	} else {
 		return input;
 	}
