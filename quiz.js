@@ -37,7 +37,7 @@ function Quiz(){
 
 Quiz.prototype.createQuestion = function() {
 	var question = this.checkInput("What would you like your question to be?");
-	var answer  = this.checkInput("What would you like your question to be?");
+	var answer  = this.checkInput("What would you like your answer to be?");
 	this.quizQuestions.push(new Question(question, answer)); 
 }
 
