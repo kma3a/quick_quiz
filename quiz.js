@@ -1,6 +1,6 @@
 var sget = require('sget');
 
-function Questions(question, answer) {
+function Question(question, answer) {
 	this.question = question;
 	this.answer = answer;
 }
@@ -10,7 +10,7 @@ Question.prototype.displayQuestion = function() {
 }
 
 Question.prototype.displayAnswer= function() {
-	return console.log(this.answer);
+	return this.answer;
 }
 
 Question.prototype.checkAnswer = function(userAnswer) {
@@ -38,7 +38,7 @@ function Quiz(){
 Quiz.prototype.createQuestion = function() {
 	var question = this.checkInput("What would you like your question to be?");
 	var answer  = this.checkInput("What would you like your question to be?");
-	this.quizQuestions.push(new Questions(question, answer)); 
+	this.quizQuestions.push(new Question(question, answer)); 
 }
 
 Quiz.prototype.checkInput = function(message) {
@@ -52,14 +52,14 @@ Quiz.prototype.checkInput = function(message) {
 
 Quiz.prototype.askQuestions = function() {
 	this.quizQuestions.forEach(function(currentQuestion) {
-		currentQuestion.displayquestion();
-		var userAnswer = this.checkInput("your answer: ");
-		this.checkAnswer(currentQuestion, userAnswer);	
+		currentQuestion.displayQuestion();
+		myQuiz.checkAnswer(currentQuestion);	
 	})
 	console.log("Your score was " + this.currentScore.score);
 }
 
-Quiz.prototype.checkAnswer = function(currentQuestion, userAnswer) {
+Quiz.prototype.checkAnswer = function(currentQuestion) {
+	var userAnswer = this.getInput("your answer: ");
 	var isCorrect = currentQuestion.checkAnswer(userAnswer);
 	if (isCorrect) {
 		this.currentScore.rightAnswer();
