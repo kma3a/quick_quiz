@@ -6,3 +6,12 @@ function Questions(question, answer) {
 function ScoreKeeper() {
 	this.currentScore = 0;
 }
+
+ScoreKeeper.prototype.rightAnswer = function() {
+	this.currentScore += 10;
+};
+
+
+var myScore = new ScoreKeeper;
+myScore.rightAnswer();
+console.log(myScore.currentScore === 10);
