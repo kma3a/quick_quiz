@@ -1,3 +1,5 @@
+var sget = require('sget');
+
 function Questions(question, answer) {
 	this.question = question;
 	this.answer = answer;
@@ -28,9 +30,13 @@ function Quiz(){
 	this.quizQuestions = [];
 }
 
+Quiz.prototype.getInput = function(message) {
+	return sget(message).trim().toUpperCase();
+}
+
 Quiz.prototype.menu() {
 	console.log("1- create questions\n2- take quiz\n3- exit program");
-	switch(getInput("What would you like to do?")) {
+	switch(this.getInput("What would you like to do?")) {
 		case "1":
 			break;
 		case "2":
