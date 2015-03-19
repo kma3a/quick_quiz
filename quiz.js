@@ -5,6 +5,10 @@ function Questions(question, answer) {
 	this.answer = answer;
 }
 
+Question.prototype.checkAnswer = function(userAnswer) {
+	return this.answer === userAnswer;
+}
+
 function ScoreKeeper() {
 	this.score = 0;
 }
