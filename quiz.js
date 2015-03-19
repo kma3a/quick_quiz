@@ -23,6 +23,12 @@ function Quiz(){
 	this.quizQuestions = [];
 }
 
+Quiz.prototype.createQuestion = function() {
+	var question = this.checkInputQuestion(	this.getInput("What would you like your question to be?"));
+	var answer  = this.checkInputAnswer( this.getInput("What would you like your question to be?"));
+	this.quizQuestions.push(new Questions(question, answer)); 
+}
+
 Quiz.prototype.getInput = function(message) {
 	return sget(message).trim().toUpperCase();
 }
