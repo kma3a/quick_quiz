@@ -29,6 +29,14 @@ Quiz.prototype.createQuestion = function() {
 	this.quizQuestions.push(new Questions(question, answer)); 
 }
 
+Quiz.prototype.checkInputQuestion = function(question) {
+	if (question === "") {
+		return this.checkInputQuestion(	this.getInput("What would you like your question to be?"));
+	} else {
+		return question;
+	}
+}
+
 Quiz.prototype.getInput = function(message) {
 	return sget(message).trim().toUpperCase();
 }
