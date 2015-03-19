@@ -27,3 +27,19 @@ function Quiz(){
 	this.currentScore = new ScoreKeeper;
 	this.quizQuestions = [];
 }
+
+Quiz.prototype.menu() {
+	console.log("1- create questions\n2- take quiz\n3- exit program");
+	switch(getInput("What would you like to do?")) {
+		case "1":
+			break;
+		case "2":
+			break;
+		case "3":
+			break;
+		default:
+			this.menu();
+	}
+}
+
+
