@@ -43,8 +43,11 @@ Quiz.prototype.checkInput = function(message) {
 }
 
 Quiz.prototype.askQuestions = function() {
-	this.quizQuestions.forEach(function(question) {
-
+	this.quizQuestions.forEach(function(currentQuestion) {
+		currentQuestion.displayquestion();
+		var userAnswer = this.checkInput("your answer: ");
+		var isCorrect = currentQuestion.checkAnswer(userAnswer);
+		
 	})
 }
 
