@@ -88,6 +88,7 @@ Quiz.prototype.menu = function() {
 			break;
 		case "2":
 			this.askQuestions();
+			this.menu();
 			break;
 		case "3":
 			break;
