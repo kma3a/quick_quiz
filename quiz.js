@@ -34,7 +34,7 @@ Quiz.prototype.getInput = function(message) {
 	return sget(message).trim().toUpperCase();
 }
 
-Quiz.prototype.menu() {
+Quiz.prototype.menu = function() {
 	console.log("1- create questions\n2- take quiz\n3- exit program");
 	switch(this.getInput("What would you like to do?")) {
 		case "1":
