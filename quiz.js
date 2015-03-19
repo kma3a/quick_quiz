@@ -79,6 +79,10 @@ Quiz.prototype.startGame = function() {
 	this.menu();
 }
 
+Quiz.prototype.endGame = function() {
+	console.log("Thanks for playing!");
+}
+
 Quiz.prototype.menu = function() {
 	console.log("1- create questions\n2- take quiz\n3- exit program");
 	switch(this.getInput("What would you like to do?")) {
@@ -91,6 +95,7 @@ Quiz.prototype.menu = function() {
 			this.menu();
 			break;
 		case "3":
+			this.endGame();
 			break;
 		default:
 			this.menu();
